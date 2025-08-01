@@ -1,0 +1,154 @@
+https://github.com/bkeerthana/FASTTRACK_MVTVLSI_2025
+
+1. Print your current directory using `pwd`.
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~$ pwd
+/home/msis
+
+2. Create a directory called `demo` and navigate into it.
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~$ mkdir demo
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~$ cd demo
+
+3. Create a file named `test.txt` and add some content using `echo` or `nano`.
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ touch test.txt
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ ls
+test.txt
+
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ echo "HELLO This is Yogesh" > test.txt
+
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ cat test.txt
+HELLO This is Yogesh
+
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ nano test.txt
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ cat test.txt
+Heloo This IS YOGESH
+
+4. Copy `test.txt` to `copy_test.txt`.
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ ls
+code.txt  test.txt
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ cat test.txt
+Heloo This IS YOGESH
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ cp test.txt copy_test.txt
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ ls
+code.txt  copy_test.txt  test.txt
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ cat copy_test.txt
+Heloo This IS YOGESH
+
+5. Rename `copy_test.txt` to `renamed.txt`.
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ mv copy_test.txt renamed.txt
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ ls
+code.txt  renamed.txt  test.txt
+
+6. List all files using `ls -l`.
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ ls -l
+total 12
+-rw-rw-r-- 1 msis msis 1512 Aug  1 14:48 code.txt
+-rw-rw-r-- 1 msis msis   21 Aug  1 14:45 renamed.txt
+-rw-rw-r-- 1 msis msis   21 Aug  1 14:35 test.txt
+
+7. View contents of `test.txt` using `cat`.
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ cat test.txt
+Heloo This IS YOGESH
+
+8. Display top 5 lines of `test.txt` using `head -n 5`.
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ nano test.txt
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ cat test.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ cat test.txt | head -5
+1
+2
+3
+4
+5
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ cat test.txt | tail -5
+6
+7
+8
+9
+0
+
+
+9. Change permission of `test.txt` to read-only using `chmod`.
+\
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ ls -l
+total 12
+-rw-rw-r-- 1 msis msis 2343 Aug  1 14:56 code.txt
+-rw-rw-r-- 1 msis msis   21 Aug  1 14:45 renamed.txt
+-rw-rw-r-- 1 msis msis   20 Aug  1 14:54 test.txt
+>
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ chmod 444 test.txt
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ ls -l
+total 12
+-rw-rw-r-- 1 msis msis 2343 Aug  1 14:56 code.txt
+-rw-rw-r-- 1 msis msis   21 Aug  1 14:45 renamed.txt
+-r--r--r-- 1 msis msis   20 Aug  1 14:54 test.txt
+
+10. Check memory and disk usage using `free -h` and `df -h`.
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           1.6G  2.2M  1.6G   1% /run
+/dev/nvme0n1p8  299G   30G  254G  11% /
+tmpfs           7.7G  3.1M  7.7G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+efivarfs        246K  145K   97K  60% /sys/firmware/efi/efivars
+/dev/nvme0n1p1   96M   76M   21M  80% /boot/efi
+tmpfs           1.6G  140K  1.6G   1% /run/user/1000
+
+
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:            15Gi       3.5Gi       8.7Gi       862Mi       3.9Gi        11Gi
+Swap:           14Gi          0B        14Gi
+
+Challenge: Create a script file that prints system date and memory usage.
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ nano sys_file.sh
+/////////
+echo "System Date and Time"
+date
+echo
+
+echo"System Memory Usage"
+free -h
+////////
+
+msis@msis-HP-Pro-Tower-400-G9-PCI-Desktop-PC:~/demo$ ./sys_file.sh
+System Date and Time
+Fri Aug  1 03:22:01 PM IST 2025
+
+./sys_file.sh: line 5: echoSystem Memory Usage: command not found
+               total        used        free      shared  buff/cache   available
+Mem:            15Gi       3.5Gi       8.6Gi       824Mi       3.9Gi        11Gi
+Swap:           14Gi          0B        14Gi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
